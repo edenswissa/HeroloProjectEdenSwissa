@@ -1,0 +1,64 @@
+<mat-spinner color="warn" *ngIf="isLoading"></mat-spinner>
+<mat-accordion *ngIf="books.length > 0 && !isLoading">
+  <mat-expansion-panel *ngFor="let book of books; let i=index">
+    <mat-expansion-panel-header>
+      <span class="mat-body-2 title-text">{{book.bookTitle | titlecase | nosymbol}}</span>
+    </mat-expansion-panel-header>
+    <p class="mat-body-2">
+      <span>Id : </span>
+      <span style="color: palevioletred">{{book.id}}</span>
+    </p>
+    <p class="mat-body-2">
+      <span>Published Date : </span>
+      <span style="color: palevioletred">{{book.publishedDate}}</span>
+    </p>
+    <p class="mat-body-2">
+      <span>Author : </span>
+      <span style="color: palevioletred">{{book.authorName}}</span>
+    </p>
+    <mat-action-row>
+      <button mat-button color="primary" (click)="onEditBook(i)">EDIT</button>
+      <button mat-button color="warn" (click)="onDeleteBook(i)">DELETE</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<p class="info-text mat-body-2" *ngIf="books.length <= 0 && !isLoading"> No Books yet </p>
+
+
+<!-- <div class="row">
+  <div class="col-xs-12">
+    <mat-table [dataSource]="books" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef>Id </mat-header-cell>
+        <mat-cell *matCellDef="let book; let i=index">{{book.id}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="bookTitle">
+        <mat-header-cell *matHeaderCellDef> Boot Title </mat-header-cell>
+        <mat-cell *matCellDef="let book; let i=index">{{book.bookTitle}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="authorName">
+        <mat-header-cell *matHeaderCellDef> Author </mat-header-cell>
+        <mat-cell *matCellDef="let book; let i=index">{{book.authorName}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="publishedDate">
+        <mat-header-cell *matHeaderCellDef> Published Date </mat-header-cell>
+        <mat-cell *matCellDef="let book; let i=index">{{book.publishedDate}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef>Action </mat-header-cell>
+        <mat-cell *matCellDef="let i=index">
+          <button mat-button color="primary" (click)="onEditBook(i)">EDIT</button>
+          <button mat-button color="warn" (click)="onDeleteBook(i)">DELETE</button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+</div> -->

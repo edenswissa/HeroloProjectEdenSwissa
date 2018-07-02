@@ -1,0 +1,19 @@
+mat-accordion
+{
+  margin-top: 1rem;
+  display: block;
+}
+
+.title-text
+{
+  text-align: center;
+}
+
+mat-spinner{
+  margin: auto;
+}
+
+.info-text {
+  text-align: center;
+}
+

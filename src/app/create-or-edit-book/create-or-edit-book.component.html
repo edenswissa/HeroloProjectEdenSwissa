@@ -1,0 +1,36 @@
+<div>
+  <h1 mat-dialog-title>Adding Book</h1>
+    <mat-dialog-content>
+      <form [formGroup]="form">
+        <mat-form-field>
+          <input matInput
+          type="text" formControlName="id"
+          placeholder="Book id">
+          <mat-error *ngIf="!form.get('id').valid">please enter valid id</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput
+          type="text" formControlName="authorName"
+          placeholder="Author Name">
+          <mat-error *ngIf="!form.get('authorName').valid">please enter valid author name</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput
+          type="text" formControlName="publishedDate"
+          placeholder="Published Date">
+          <mat-error *ngIf="!form.get('publishedDate').valid">please enter valid published date dd/mm/yyyy</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput
+          type="text" formControlName="bookTitle"
+          placeholder="Book Title">
+          <mat-error *ngIf="!form.get('bookTitle').valid">please enter valid book title</mat-error>
+        </mat-form-field>
+      </form>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <hr>
+        <button mat-button color="primary" (click)="onSave()">SAVE</button>
+        <button mat-button (click)="onCancel()">CANCEL</button>
+    </mat-dialog-actions>
+</div>
